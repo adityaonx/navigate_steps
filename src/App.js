@@ -12,15 +12,17 @@ function App() {
   //saves the state for if open value is true or false, (visible or hidden)
   const [isOpen, setIsOpen] = useState(true);
   function handlePrevious() {
-    if (step > 1) setStep((step) => step - 1);
+    // using 's' instead of step while using it as a callback function. It takes current value of variable and then using callback setting it to desired value. No need to place actual variable.
+    if (step > 1) setStep((s) => s - 1);
   }
   function handleNext() {
-    if (step < 3) setStep((step) => step + 1);
+    // using 's' instead of step while using it as a callback function. It takes current value of variable and then using callback setting it to desired value. No need to place actual variable.
+    if (step < 3) setStep((s) => s + 1);
   }
   return (
     // added fragment "<>" instead of <div> so that parent div is not visible in the DOM, and <> behaves like a root element.
     <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
         &times;
       </button>
       {isOpen ? (
